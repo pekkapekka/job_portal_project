@@ -27,7 +27,7 @@
       @if(isset($details))      
             <div class="container-table100">
                   <div class="wrap-table100">
-                        <p align="center"> The Search results for your query <b> {{ $query }} </b> are :</p>
+                        <p align="center"> The Search results for your <b> {{ $query }} </b> are :</p>
                         <h2 align="center">Jobs</h2>
                               <div class="table">
                                     <div class="row header">
@@ -38,20 +38,44 @@
                                                 Name
                                           </div>
                                           <div class="cell">
+                                                Category
+                                          </div>
+                                          <div class="cell">
+                                                Location
+                                          </div>
+                                          <!-- <div class="cell">
                                                 Description
+                                          </div> -->
+                                          <div class="cell">
+                                                
+                                          </div>
+                                          <div class="cell">
+                                                Show Detail
                                           </div>
                                     </div>
 
                               @foreach($details as $job)
                                     <div class="row">
-                                          <div class="cell" data-title="Full Name">
+                                          <div class="cell" data-title="">
                                                 {{$job->title}}
                                           </div>
-                                          <div class="cell" data-title="Job Title">
+                                          <div class="cell" data-title="">
                                                 {{$job->name}}
                                           </div>
-                                          <div class="cell" data-title="Location">
+                                          <div class="cell" data-title="">
+                                                {{$job->category->category_name}}
+                                          </div>
+                                          <div class="cell" data-title="">
+                                                {{$job->location->location_name}}
+                                          </div>
+                                          <!-- <div class="cell" data-title="">
                                                 {{$job->description}}
+                                          </div> -->
+                                          <div class="cell" data-title="">
+                                                <img src="{{$job->image}}" width="150px" />
+                                          </div>
+                                          <div class="cell" data-title="">
+                                                <input type="submit" class="btn btn-primary" value="Detail"/>
                                           </div>
                                     </div>
                               @endforeach

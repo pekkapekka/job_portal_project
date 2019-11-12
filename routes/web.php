@@ -34,19 +34,25 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::any('/jobsearch',function(){
-$q1 = Request::get ( 'q1' );
+$q1_title = Request::get ( 'q1-title' );
+$q1_category = Request::get( 'q1-category' );
+$q1_location = Request::get( 'q1-location' );
 // $job = Job::where('title','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
-$job = Job::where('title','LIKE','%'.$q1.'%')->get();
+$job = Job::query()
+		->where('title','LIKE','%'.$q1_title.'%')
+		->where('category_id','LIKE',$q1_category)
+		->where('location_id','LIKE',$q1_location)
+		->get();
 if($job)
-	return view('jobsearch')->withDetails($job)->withQuery ( $q1 );
+	return view('jobsearch')->withDetails($job)->withQuery ( $q1_title );
 else return view ('jobsearch')->withMessage('No Details found. Try to search again !');
 });
 
 Route::any('/candidatesearch',function(){
-$q2 = Request::get ( 'q2' );
+$q2_name = Request::get ( 'q2-name' );
 
-$user = User::where('name','LIKE','%'.$q2.'%')->get();
+$user = User::where('name','LIKE','%'.$q2_name.'%')->get();
 if($user)
-	return view('candidatesearch')->withDetails($user)->withQuery ( $q2 );
+	return view('candidatesearch')->withDetails($user)->withQuery ( $q2_name );
 else return view ('candidatesearch')->withMessage('No Details found. Try to search again !');
 });

@@ -31,7 +31,7 @@
 			              				<div class="form-group">
 				              				<div class="form-field">
 				              					<div class="icon"><span class="icon-briefcase"></span></div>
-								                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer" name="q1" placeholder="Search Jobs">
+								                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer" name="q1-title" placeholder="Search Jobs">
 								              </div>
 							              </div>
 			              			</div>
@@ -40,7 +40,7 @@
 			              					<div class="form-field">
 				              					<div class="select-wrap">
 						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-						                      <select name="" id="" class="form-control">
+						                      <select name="q1-category" id="" class="form-control">
 						                      	<option value="">Category</option>
 						                      	@foreach($categories as $category)
                                       <option value="{{$category->id}}">{{$category->category_name}}</option>
@@ -55,7 +55,7 @@
                               <div class="form-field">
                                 <div class="select-wrap">
                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                  <select name="" id="" class="form-control">
+                                  <select name="q1-location" class="form-control">
                                     <option value="">Location</option>
                                     @foreach($locations as $location)
                                       <option value="{{$location->id}}">{{$location->location_name}}</option>
@@ -84,7 +84,7 @@
                             <div class="form-group">
                               <div class="form-field">
                                 <div class="icon"><span class="icon-briefcase"></span></div>
-                                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer" name="q2" placeholder="Search Jobs">
+                                <input type="text" class="form-control" placeholder="eg. mgmg,aungaung" name="q2-name" placeholder="Search Jobs">
                               </div>
                             </div>
                           </div>

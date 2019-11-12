@@ -27,7 +27,7 @@
       @if(isset($details))      
             <div class="container-table100">
                   <div class="wrap-table100">
-                        <p align="center"> The Search results for your query <b> {{ $query }} </b> are :</p>
+                        <p align="center"> The Search results for <b> {{ $query }} </b> are :</p>
                         <h2 align="center">Jobs</h2>
                               <div class="table">
                                     <div class="row header">
