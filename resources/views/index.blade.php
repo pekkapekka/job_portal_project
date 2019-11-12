@@ -727,4 +727,27 @@
         </div>
       </div>
     </section>
+
+    <script type="text/javascript">
+      $('.').select2({
+        placeholder: 'Select an item',
+        ajax: {
+          url: '/select2-autocomplete-ajax',
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results:  $.map(data, function (item) {
+                    return {
+                        text: item.name,
+                        id: item.id
+                    }
+                })
+            };
+          },
+          cache: true
+        }
+      });
+  </script>
+
   @endsection
