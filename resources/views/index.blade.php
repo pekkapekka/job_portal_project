@@ -23,13 +23,15 @@
 			            <div class="tab-content p-4" id="v-pills-tabContent">
 
 			              <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-			              	<form action="#" class="search-job">
+
+			              	<form action="/jobsearch" class="search-job" role="search">
+                        {{ csrf_field() }}
 			              		<div class="row">
 			              			<div class="col-md">
 			              				<div class="form-group">
 				              				<div class="form-field">
 				              					<div class="icon"><span class="icon-briefcase"></span></div>
-								                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer">
+								                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer" name="q1" placeholder="Search Jobs">
 								              </div>
 							              </div>
 			              			</div>
@@ -75,16 +77,17 @@
 			              </div>
 
 			              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-			              	<form action="#" class="search-job">
-			              		<div class="row">
-			              			<div class="col-md">
-			              				<div class="form-group">
-				              				<div class="form-field">
-				              					<div class="icon"><span class="icon-user"></span></div>
-								                <input type="text" class="form-control" placeholder="eg. Adam Scott">
-								              </div>
-							              </div>
-			              			</div>
+			              	<form action="/candidatesearch" class="search-job" role="search">
+                        {{ csrf_field() }}
+                        <div class="row">
+                          <div class="col-md">
+                            <div class="form-group">
+                              <div class="form-field">
+                                <div class="icon"><span class="icon-briefcase"></span></div>
+                                <input type="text" class="form-control" placeholder="eg. Garphic. Web Developer" name="q2" placeholder="Search Jobs">
+                              </div>
+                            </div>
+                          </div>
 			              			<div class="col-md">
 			              				<div class="form-group">
 			              					<div class="form-field">

@@ -1,5 +1,9 @@
 <?php
 
+// use Illuminate\Support\Facades\Input;
+use Request;
+use App\Job;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +32,21 @@ Route::resource('/postjob','jobController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::any('/jobsearch',function(){
+$q1 = Request::get ( 'q1' );
+// $job = Job::where('title','LIKE','%'.$q.'%')->orWhere('email','LIKE','%'.$q.'%')->get();
+$job = Job::where('title','LIKE','%'.$q1.'%')->get();
+if(count($job) > 0)
+	return view('jobsearch')->withDetails($job)->withQuery ( $q1 );
+else return view ('jobsearch')->withMessage('No Details found. Try to search again !');
+});
+
+Route::any('/candidatesearch',function(){
+$q2 = Request::get ( 'q2' );
+
+$user = User::where('name','LIKE','%'.$q2.'%')->get();
+if(count($user) > 0)
+	return view('candidatesearch')->withDetails($user)->withQuery ( $q2 );
+else return view ('candidatesearch')->withMessage('No Details found. Try to search again !');
+});
