@@ -31,10 +31,10 @@
     @extends('layout.nav')
     <!-- END nav -->
     
-    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <!-- <div class="hero-wrap js-fullheight" style="background-color:white;" data-stellar-background-ratio="0.5"> -->
       <div class="overlay"></div>
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true">
+        <!-- <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start" data-scrollax-parent="true"> -->
           <div class="col-md-8 ftco-animate text-center text-md-left mb-5" data-scrollax=" properties: { translateY: '70%' }">
             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-3"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About</span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">About</h1>
@@ -142,7 +142,7 @@
       </div>
     </section>
 
-    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <!-- <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md-10">
@@ -183,9 +183,9 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     
-    <section class="ftco-section-parallax">
+    <!-- <section class="ftco-section-parallax">
       <div class="parallax-img d-flex align-items-center">
         <div class="container">
           <div class="row d-flex justify-content-center">
@@ -206,7 +206,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     @extends('layout.footer')
     
