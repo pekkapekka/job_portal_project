@@ -162,7 +162,7 @@
                                 <td>{{$job->name}}</td>
                                 <td>{{$job->category->category_name}}</td>
                                 <td>{{$job->location->location_name}}</td>
-                                <td><img src="{{asset($job->image)}}" width="150px" /></td>
+                                <td><img src="{{$job->image}}" width="150px" /></td>
                                 <td><input type="submit" class="btn btn-primary" value="Detail"/></td>
                               </tr>
                               @endforeach                              
