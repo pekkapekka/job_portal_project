@@ -141,7 +141,7 @@
     @if(isset($details))      
             <div class="container">
                   <div class="table">
-                        <p align="center"> Here Available <b> <h1 align="center">Jobs</h1> </b> are :</p>
+                        <p align="center">Available Jobs<b> <h1 align="center"></h1> </b> are :</p>
                               <table>
                                 <thead>
                                   <tr>
@@ -404,7 +404,7 @@
             <div class="carousel-testimony owl-carousel ftco-owl">
               <div class="item">
                 <div class="testimony-wrap py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url({{asset('images/person_1.jpg')}})">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -418,7 +418,7 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img mb-4" style="background-image: url({{asset('images/person_1.jpg')}})">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -432,35 +432,16 @@
               </div>
               <div class="item">
                 <div class="testimony-wrap py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img mb-4" style="background-image: url({{asset('images/person_1.jpg')}})">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">UI Designer</span>
                   </div>
                 </div>
               </div>
               <div class="item">
                 <div class="testimony-wrap py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4 pb-5">
-                  <div class="user-img mb-4" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img mb-4" style="background-image: url({{asset('images/person_1.jpg')}})">
                     <span class="quote d-flex align-items-center justify-content-center">
                       <i class="icon-quote-left"></i>
                     </span>
@@ -489,7 +470,7 @@
         <div class="row d-flex">
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('images/image_1.jpg')}});">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
@@ -504,7 +485,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('images/image_1.jpg')}});">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
@@ -519,7 +500,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('images/image_1.jpg')}});">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
@@ -534,7 +515,7 @@
           </div>
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('images/image_1.jpg')}});">
               </a>
               <div class="text mt-3">
               	<div class="meta mb-2">
