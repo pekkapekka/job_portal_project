@@ -48,3 +48,7 @@ Route::resource('/candidates','CandidateController');
 Route::resource('/jobs','jobController');
 
 Route::resource('/jobtypes','JobtypeController');
+
+Route::resource('/category','CategoryController');
+
+Route::resource('/company','CompanyController');

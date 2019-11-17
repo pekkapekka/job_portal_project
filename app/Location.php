@@ -10,4 +10,8 @@ class Location extends Model
     public function job(){
     	return $this->hasMany('App\Job');
     }
+    public function company()
+    {
+        return $this->hasMany('App\Company');
+    }
 }
