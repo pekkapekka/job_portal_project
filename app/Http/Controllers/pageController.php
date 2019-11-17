@@ -16,7 +16,10 @@ class pageController extends Controller
     	$categories = Category::all();
     	$locations = Location::all();
     	$jobs = Job::paginate(7);
-    	$jobtypes = Jobtype::all();
+    	$jobtypes = Jobtype::all();;
+
+
+    	//return $jobtypes = Jobtype::all()->count();
 
     	return view('index',compact('categories','locations','jobtypes'))->withDetails($jobs);
     }

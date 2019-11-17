@@ -42,3 +42,9 @@ Route::get('/sendemail', 'SendEmailController@index');
 Route::post('/sendemail/send', 'SendEmailController@send');
 
 Route::get('/jobtypesearch/{id}','jobTypeSearch@index')->name('jobtypesearch');
+
+Route::resource('/candidates','CandidateController');
+
+Route::resource('/jobs','jobController');
+
+Route::resource('/jobtypes','JobtypeController');

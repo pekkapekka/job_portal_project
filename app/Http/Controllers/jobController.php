@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Location;
 use App\Job;
+use App\Location;
 use App\Category;
+use App\User;
 
-class jobController extends Controller
+class JobController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +17,11 @@ class jobController extends Controller
      */
     public function index()
     {
-        $locations = Location::all(); 
-        $jobs = Job::all();
+        $jobs= Job::all();
         $categories = Category::all();
-        return view('postjob',compact('locations','jobs','categories'));
+        $locations = Location::all();
+        $users = User::all();
+        return view('jobs.index',compact('jobs','categories','locations','users'));
     }
 
     /**
@@ -29,7 +31,13 @@ class jobController extends Controller
      */
     public function create()
     {
+        $categories=Category::all();
+        $locations=Location::all();
+        $users=User::all();
+
+
         
+         return view('jobs.create',compact('categories','locations','users'));
     }
 
     /**
@@ -40,41 +48,46 @@ class jobController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|min:5',
-            'name' => 'required|min:5',
-            'category' => 'required',
-            'location' => 'required',
-            'description' => 'required',
-            'photo' => 'required|mimes:jpeg,jpg,png',
+         $request->validate([
+            'title' => 'required',//form ka name k call(input type name
+            'categories' =>'required',
+            'locations'=>'required',
+            'description'=>'required',
+            'salary'=>'required',
+            'photo'=>'required|mimes:jpeg,png,jpg',
+            'users'=>'required',
+            
         ]);
 
+        //File Upload
         if($request->hasfile('photo')){
-            $photo = $request->file('photo');
-            //$name = $photo->getClientOriginalName();
-            $name = time().'.'.$photo->getClientOriginalExtension();
-            $photo->move(public_path().'/img/',$name);
-            $photo = '/img/'.$name;
+            $photo=$request->file('photo');
+            $name=time().'.'.$photo->getClientOriginalExtension();
+            $photo->move(public_path().'/storage/image/',$name);
+            $photo='/storage/image/'.$name;
+
+        }
+        else{
+            $photo='';
         }
 
+        //Data Insert
+        $jobs=new Job();
+        $jobs->title=request('title');
+        $jobs->category_id=request('category');
+        $jobs->location_id=request('locations');
+        $jobs->description=request('description');
+        $jobs->salary=request('salary');
+        $jobs->photo=$photo;
+        $jobs->user_id=request('users');
+       
+        //d($candidates);   
+        //$post->status=true;
+        $jobs->save();
 
-        // Data insert
-        $job = new Job();
-        $job->title = request('title');
-        $job->name = request('name');
-        $job->category_id = request('category');
-        $job->location_id = request('location');
-        $job->description = request('description');
-        $job->image = $photo;
-        $job->user_id = 3;
-        //$job->user_id = Auth::id();
-        // $post->status = true;
+        //Redirect
 
-        $job->save();
-
-        // Redirect
-        return redirect()->route('postjob.index');
-
+        return redirect()->route('jobs.index');
     }
 
     /**
@@ -85,7 +98,11 @@ class jobController extends Controller
      */
     public function show($id)
     {
-        //
+        $jobs=Job::find($id);
+        $categories=Job::all();
+        $locations=Location::all();
+        $users=User::all();
+        return view('jobs.edit',compact('jobs','categories','locations','users'));
     }
 
     /**
@@ -96,7 +113,11 @@ class jobController extends Controller
      */
     public function edit($id)
     {
-
+        $jobs=Job::find($id);
+        $categories=Category::all();
+        $locations=Location::all();
+        $users=User::all();
+        return view('jobs.edit',compact('jobs','categories','locations','users'));
     }
 
     /**
@@ -108,7 +129,47 @@ class jobController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+              $request->validate([
+            'title' => 'required',//form ka name k call(input type name
+            'category' =>'required',
+            'locations'=>'required',
+            'description'=>'required',
+            'salary'=>'required',
+            'photo'=>'sometimes|mimes:jpeg,png,jpg',
+           
+            'users'=>'required',
+            
+        ]);
+
+        //File Upload
+        if($request->hasfile('photo')){
+            $photo=$request->file('photo');
+            $name=time().'.'.$photo->getClientOriginalExtension();
+            $photo->move(public_path().'/storage/image/',$name);
+            $photo='/storage/image/'.$name;
+
+        }
+        else{
+            $photo='oldphoto';
+        }
+
+        //Data Insert
+        $jobs= Job::find($id);
+        $jobs->title=request('title');
+        $jobs->category_id=request('category');
+        $jobs->location_id=request('locations');
+        $jobs->description=request('description');
+        $jobs->salary=request('salary');
+        $jobs->image=$photo;
+        $jobs->user_id=request('users');
+       
+        //dd($candidates);   
+        //$post->status=true;
+        $jobs->save();
+
+        //Redirect
+
+       return redirect()->route('jobs.index');
     }
 
     /**
@@ -119,6 +180,9 @@ class jobController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $jobs= Job::find($id);
+        $jobs->delete();
+
+        return redirect()->route('jobs.index');
     }
 }

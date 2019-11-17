@@ -10,4 +10,8 @@ class Jobtype extends Model
     {
     	return $this->hasMany('App\Job');
     }
+    public function candidate()
+    {
+    	return $this->hasMany('App\Candidate');
+    }
 }

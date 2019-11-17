@@ -28,7 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('myweb@jobportal.dev')->view('dynamic_email_template')->with('data', $this->data);
+        return $this->from('pekkafirethawn459@gmail.com')->view('dynamic_email_template')->with('data', $this->data);
     }
 }
 

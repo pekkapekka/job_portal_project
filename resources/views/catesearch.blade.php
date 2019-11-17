@@ -170,8 +170,8 @@
                           </table>
                   </div>
 
-                  <div class="row mt-5">
-                    <div class="col text-center">
+                  <div class="row">
+                    <div class="col">
                         <nav class="jobnav">
                           {{ $details->links() }}
                         </nav>

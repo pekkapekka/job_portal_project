@@ -3,9 +3,9 @@
 <!-- <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5"> -->
   <!-- <div class="hero-wrap js-fullheight" style="background-color: white" data-stellar-background-ratio="0.5"> -->
       <div class="overlay"></div>
-      <div class="container bg-light">
+      <div class="container">
         <!-- <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true"> -->
-          <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }">
+          <!-- <div class="col-xl-10 ftco-animate mb-5 pb-5" data-scrollax=" properties: { translateY: '70%' }"> -->
           	<p class="mb-4 mt-5 pt-5" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We have <span class="number" data-number="100"></span> great many job offers you deserve!</p>
             <h1 class="mb-5" style="color:#157efb" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Your <br><span>Job is Waiting</span></h1>
 
@@ -15,7 +15,7 @@
 			            <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 			              <a class="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Find a Job</a>
 
-			              <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Find a Candidate</a>
+			              <!-- <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Find a Candidate</a> -->
 
 			            </div>
 			          </div>
@@ -75,6 +75,7 @@
 			              			</div>
 			              		</div>
 			              	</form>
+
 			              </div>
 
 			              <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
@@ -85,31 +86,16 @@
                             <div class="form-group">
                               <div class="form-field">
                                 <div class="icon"><span class="icon-briefcase"></span></div>
-                                <input type="text" class="form-control" placeholder="eg. mgmg,aungaung" name="q2-name" placeholder="Search Jobs">
+                                <input type="text" class="form-control" placeholder="Enter Job Type key word" name="q2-jobtype" placeholder="Search Jobs">
                               </div>
                             </div>
                           </div>
-			              			<div class="col-md">
-			              				<div class="form-group">
-			              					<div class="form-field">
-				              					<div class="select-wrap">
-						                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-						                      <select name="" id="" class="form-control">
-						                      	<option value="">Category</option>
-						                      	@foreach($categories as $category)
-                                      <option value="{{$category->id}}">{{$category->category_name}}</option>
-                                    @endforeach
-						                      </select>
-						                    </div>
-								              </div>
-							              </div>
-			              			</div>
 			              			<div class="col-md">
                             <div class="form-group">
                               <div class="form-field">
                                 <div class="select-wrap">
                                   <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                  <select name="" id="" class="form-control">
+                                  <select name="q2-location" id="" class="form-control">
                                     <option value="">Location</option>
                                     @foreach($locations as $location)
                                       <option value="{{$location->id}}">{{$location->location_name}}</option>
@@ -141,11 +127,10 @@
     @if(isset($details))      
             <div class="container">
                   <div class="table">
-                        <p align="center">Available Jobs<b> <h1 align="center"></h1> </b> are :</p>
+                        <p align="center">Available Jobs<b> <h1 align="center"></h1> </b></p>
                               <table>
                                 <thead>
                                   <tr>
-                                    <th scope="col">#</th>
                                     <th scope="col">Title</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Category</th>
@@ -157,13 +142,12 @@
                                 <tbody>
                               @foreach($details as $job)
                               <tr>
-                                <td>{{$job->id}}</td>
                                 <td>{{$job->title}}</td>
                                 <td>{{$job->name}}</td>
                                 <td>{{$job->category->category_name}}</td>
                                 <td>{{$job->location->location_name}}</td>
                                 <td><img src="{{asset($job->image)}}" width="150px" /></td>
-                                <td><input type="submit" class="btn btn-primary" value="Detail"/></td>
+                                <td><a href="{{route('jobs.show',$job->id)}}">View Detail</a></td>
                               </tr>
                               @endforeach                              
                              </tbody>
@@ -237,7 +221,9 @@
           @foreach($jobtypes as $jobtype)
         	<div class="col-md-3 ftco-animate">
         		<ul class="category">
-        			<li><a href="{{route('jobtypesearch',$jobtype->id)}}">{{$jobtype->name}}<span class="number" data-number="3500">0</span></a></li>
+        			<li><a href="{{route('jobtypesearch',$jobtype->id)}}">{{$jobtype->name}}
+                <!-- <span class="number" data-number="3500">0</span></a> -->
+              </li>
         		</ul>
         	</div>
           @endforeach
