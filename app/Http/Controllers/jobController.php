@@ -7,6 +7,7 @@ use App\Job;
 use App\Location;
 use App\Category;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -79,7 +80,7 @@ class JobController extends Controller
         $jobs->description=request('description');
         $jobs->salary=request('salary');
         $jobs->photo=$photo;
-        $jobs->user_id=request('users');
+        $job->user_id = Auth::id();
        
         //d($candidates);   
         //$post->status=true;

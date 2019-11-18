@@ -12,7 +12,39 @@
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+	         @hasrole('admin')
 	          <li class="nav-item"><a href="{{route('postjob.index')}}" class="nav-link">Post a Job</a></li>
+	          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu">
+                 <a class="dropdown-item" href="#">Company</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Candidate</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Category</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">location</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Post</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Job</a>
+
+              </div>
+            </li>
+            @endhasrole
+
+            @hasrole('employer')
+	          <li class="nav-item"><a href="{{route('postjob.index')}}" class="nav-link">Post a Job</a></li>
+	        @endhasrole
+	         
+
+	      <!-- @hasrole('admin') -->                                     
+          
+            
+            
+              <!--  --> 
+          
+          <!-- @endhasrole -->
 	          
 	          @guest
               <li class="nav-item">

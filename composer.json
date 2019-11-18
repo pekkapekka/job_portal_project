@@ -16,6 +16,7 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "snowfire/beautymail": "dev-master",
+        "spatie/laravel-permission": "^3.2",
         "spatie/pdf-to-text": "^1.2"
     },
     "require-dev": {
