@@ -5,6 +5,29 @@
   <title>Send Mail Here</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
+
+    
+    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+    @extends('layout.nav')
+          <br><br><br><br>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
    .box{
@@ -44,15 +67,15 @@
    <form method="post" action="{{url('sendemail/send')}}">
     {{ csrf_field() }}
     <div class="form-group">
-     <label>Enter Your Name</label>
+     <label>Name</label>
      <input type="text" name="name" class="form-control" value="" />
     </div>
     <div class="form-group">
-     <label>Enter Your Email</label>
-     <input type="text" name="email" class="form-control" value="" />
+     <label>Email</label>
+     <input type="text" name="email" class="form-control" value="pekkafirethawn459@gmail.com" />
     </div>
     <div class="form-group">
-     <label>Enter Your Message</label>
+     <label>Enter Message</label>
      <textarea name="message" class="form-control"></textarea>
     </div>
     <div class="form-group">
@@ -61,5 +84,7 @@
    </form>
    
   </div>
+  <br><br><br><br>
+@extends('layout.footer')
  </body>
 </html>

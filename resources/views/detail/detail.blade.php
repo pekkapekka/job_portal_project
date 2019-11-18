@@ -28,6 +28,7 @@
     @extends('layout.nav')
           <br><br><br><br>
 
+
 </head>
 <body>
 
@@ -70,7 +71,7 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
           @endif
 
           @hasrole('admin')
@@ -78,11 +79,15 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
           @hasrole('user')
-          <a href="{{route('jobs.index',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
+          <a href="{{route('candidates.create')}}" class="float-right btn btn-dark ml-2">Send CV</a>
+          @endhasrole
+
+          @hasrole('admin|employer')
+            <a href="{{route('applicant')}}" class="float-right btn btn-dark ml-2">Applicants</a>
           @endhasrole
           
         </form>
@@ -133,7 +138,7 @@
     <!-- /.row -->
 
   </div>
-  <br><br><br><br>
-@extends('layout.footer')
 </body>
 </html>
+<br><br><br><br>
+@extends('layout.footer')

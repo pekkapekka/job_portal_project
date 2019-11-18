@@ -38,7 +38,7 @@ Route::get('/candidatesearch','candidateSearchController@index');
 
 Route::get('/read','pdfoperator@read')->middleware('role:admin|employer');
 
-Route::get('/sendemail', 'SendEmailController@index')->middleware('role:admin|employer');
+Route::get('/sendemail', 'SendEmailController@index')->middleware('role:admin|employer')->name('mail');
 Route::post('/sendemail/send', 'SendEmailController@send')->middleware('role:admin|employer');
 
 Route::get('/jobtypesearch/{id}','jobTypeSearch@index')->name('jobtypesearch');
@@ -54,3 +54,5 @@ Route::resource('/category','CategoryController')->middleware('role:admin');
 Route::resource('/company','CompanyController')->middleware('role:admin|employer'); // error
 
 Route::resource('/locations','LocationController')->middleware('role:admin|employer');
+
+Route::get('/applicant','applicantController@index')->middleware('role:admin|employer')->name('applicant');

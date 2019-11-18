@@ -14,4 +14,8 @@ class Candidate extends Model
     {
        return $this->belongsTo('App\Gender');
     }
+    public function jobassign()
+    {
+    	return $this->hasMany('App\Jobassign');
+    }
 }
