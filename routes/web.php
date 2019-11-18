@@ -38,7 +38,7 @@ Route::get('/candidatesearch','candidateSearchController@index');
 
 Route::get('/read','pdfoperator@read')->middleware('role:admin|employer');
 
-Route::get('/sendemail', 'SendEmailController@index')->middleware('role:admin|employer')->name('mail');
+Route::get('/sendemail/{id}', 'SendEmailController@index')->middleware('role:admin|employer')->name('mail');
 Route::post('/sendemail/send', 'SendEmailController@send')->middleware('role:admin|employer');
 
 Route::get('/jobtypesearch/{id}','jobTypeSearch@index')->name('jobtypesearch');

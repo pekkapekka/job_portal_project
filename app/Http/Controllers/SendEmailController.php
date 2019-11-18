@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
+use App\User;
 
 class SendEmailController extends Controller
 {
-    function index()
+    function index($id)
     {
-     return view('send_email');
+     $username = User::find($id);
+     return view('send_email',compact('username'));
     }
 
     function send(Request $request)

@@ -39,7 +39,7 @@
 
 </head>
 <body>
- <h2 class="text-center text-info ">Category Form</h2>
+ <h2 class="text-center text-info ">Applicants Form</h2>
 
   
 
@@ -76,7 +76,7 @@
                     <td>{{$row->company->name}}</td>
                     <td>{{$row->job->title}}</td>
                     <td><a href="{{route('candidates.edit',$row->candidate_id)}}" class="btn btn-primary">Visit</a>
-                    <td><a href="{{route('mail')}}" class="btn btn-success">Mail Here</a>
+                    <td><a href="{{route('mail',$row->candidate_id)}}" class="btn btn-success">Mail Here</a>
                     </form>
                   </tr>
             @endforeach

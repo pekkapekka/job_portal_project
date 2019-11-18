@@ -67,11 +67,11 @@
    <form method="post" action="{{url('sendemail/send')}}">
     {{ csrf_field() }}
     <div class="form-group">
-     <label>Name</label>
-     <input type="text" name="name" class="form-control" value="" />
+     <label>Candidate Name</label>
+     <input type="text" name="name" class="form-control" value="{{$username->name}}" />
     </div>
     <div class="form-group">
-     <label>Email</label>
+     <label>Candidate Email</label>
      <input type="text" name="email" class="form-control" value="pekkafirethawn459@gmail.com" />
     </div>
     <div class="form-group">

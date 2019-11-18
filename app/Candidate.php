@@ -18,4 +18,8 @@ class Candidate extends Model
     {
     	return $this->hasMany('App\Jobassign');
     }
+    public function users()
+    {
+    	return $this->belongsTo('App\User');
+    }
 }
