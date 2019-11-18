@@ -100,7 +100,7 @@ class JobController extends Controller
     public function show($id)
     {
         $jobs=Job::find($id);
-        $categories=Job::all();
+        $categories=Category::all();
         $locations=Location::all();
         $users=User::all();
         return view('jobs.edit',compact('jobs','categories','locations','users'));

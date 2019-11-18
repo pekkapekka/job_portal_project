@@ -27,16 +27,17 @@
 		        		
 		        	</div>
 		        	<div class="form-group">
-		        		 <label>Category</label><select name="category" class="form-control">
-					          <option value="">Choose Category</option>
-					          {-- accept data and loop --}
-					          @foreach($categories as $row)
-					          <option value="{{$row->id}}"
-					            @if($row->id == $jobs->category_id){{'selected'}}
-					            @endif
-					            >{{$row->category_name}}</option>
-					          @endforeach
-					        </select><br>	        		
+		        		 <label>Categories</label><select name="category" class="form-control">
+				          <option value="">Category</option>
+				          {-- accept data and loop --}
+				          @foreach($categories as $row)
+				          <option value="{{$row->id}}"
+				            @if($row->id==$jobs->category_id){{'selected'}}
+				            @endif
+				            >{{$row->category_name}}</option>
+				          @endforeach
+				        </select>
+		        		
 		        	</div>
 		        	<div class="form-group">
 		        		 <label>Locations</label><select name="locations" class="form-control">
