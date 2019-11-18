@@ -10,31 +10,45 @@
 	          <!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> -->
 	          <li class="nav-item"><a href="{{route('index')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
-	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Recent Jobs</a></li>
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
 	         @hasrole('admin')
-	          <li class="nav-item"><a href="{{route('postjob.index')}}" class="nav-link">Post a Job</a></li>
-	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Actions</a>
+	          <!-- <li class="nav-item"><a href="{{route('jobs.index')}}" class="nav-link">Post a Job</a></li> -->
+	        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create</a>
               <div class="dropdown-menu">
-                 <a class="dropdown-item" href="#">Company</a>
+                 <a class="dropdown-item" href="{{route('company.create')}}">Company</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">Candidate</a>
+                 <a class="dropdown-item" href="{{route('candidates.create')}}">Candidate</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">Category</a>
+                 <a class="dropdown-item" href="{{route('category.create')}}">Category</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">location</a>
+                 <a class="dropdown-item" href="{{route('locations.create')}}">Location</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">Post</a>
+                 <a class="dropdown-item" href="{{route('jobs.create')}}">Job</a>
+
+              </div>
+            </li>
+
+	        <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Edit</a>
+              <div class="dropdown-menu">
+                 <a class="dropdown-item" href="{{route('company.index')}}">Company</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="#">Job</a>
+                 <a class="dropdown-item" href="{{route('candidates.index')}}">Candidate</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="{{route('category.index')}}">Category</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="{{route('locations.index')}}">Location</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="{{route('jobs.index')}}">Job</a>
 
               </div>
             </li>
             @endhasrole
 
             @hasrole('employer')
-	          <li class="nav-item"><a href="{{route('postjob.index')}}" class="nav-link">Post a Job</a></li>
+	          <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link">Post a Job</a></li>	          
 	        @endhasrole
 	         
 

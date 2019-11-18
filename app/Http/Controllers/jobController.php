@@ -7,6 +7,7 @@ use App\Job;
 use App\Location;
 use App\Category;
 use App\User;
+use App\Jobtype;
 use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
@@ -35,10 +36,11 @@ class JobController extends Controller
         $categories=Category::all();
         $locations=Location::all();
         $users=User::all();
+        $jobtypes=Jobtype::all();
 
 
         
-         return view('jobs.create',compact('categories','locations','users'));
+         return view('jobs.create',compact('categories','locations','users','jobtypes'));
     }
 
     /**
@@ -51,12 +53,13 @@ class JobController extends Controller
     {
          $request->validate([
             'title' => 'required',//form ka name k call(input type name
+            'name' => 'required',
             'categories' =>'required',
             'locations'=>'required',
             'description'=>'required',
             'salary'=>'required',
             'photo'=>'required|mimes:jpeg,png,jpg',
-            'users'=>'required',
+            'users' => 'required',
             
         ]);
 
@@ -75,12 +78,15 @@ class JobController extends Controller
         //Data Insert
         $jobs=new Job();
         $jobs->title=request('title');
-        $jobs->category_id=request('category');
+        $jobs->name=request('name');
+        $jobs->category_id=request('categories');
         $jobs->location_id=request('locations');
         $jobs->description=request('description');
         $jobs->salary=request('salary');
-        $jobs->photo=$photo;
-        $job->user_id = Auth::id();
+        $jobs->image=$photo;
+        $jobs->user_id = request('users');
+        $jobs->jobtype_id = request('jobtypes');
+        // $job->user_id = Auth::id();
        
         //d($candidates);   
         //$post->status=true;
@@ -99,11 +105,8 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $jobs=Job::find($id);
-        $categories=Category::all();
-        $locations=Location::all();
-        $users=User::all();
-        return view('jobs.edit',compact('jobs','categories','locations','users'));
+        $post = Job::find($id);      
+        return view('detail.detail',compact('post'));
     }
 
     /**

@@ -6,27 +6,6 @@
  
   <!-- Custom styles for this template -->
   <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
-    
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
-
-    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
-
-    <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
-
-    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
-
-    
-    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
-    <link rel="stylesheet" href="{{asset('css/style.css')}}">
-
-    @extends('layout.nav')
-          <br><br><br><br>
 
 </head>
 <body>
@@ -70,7 +49,7 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
           @endif
 
           @hasrole('admin')
@@ -78,11 +57,11 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
           @hasrole('user')
-          <a href="{{route('jobs.index',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
+          <a href="#" class="float-right btn btn-dark ml-2">Send CV</a>
           @endhasrole
           
         </form>
@@ -133,7 +112,5 @@
     <!-- /.row -->
 
   </div>
-  <br><br><br><br>
-@extends('layout.footer')
 </body>
 </html>

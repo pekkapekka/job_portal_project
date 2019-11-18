@@ -1,4 +1,30 @@
+<title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
+
+    
+    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+    @extends('layout.nav')
+    			<br><br><br><br>
 		        <!-- Title -->
 		<link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 
@@ -30,12 +56,21 @@
 				        		<input type="text" name="title" class="form-control" placeholder="Enter Title">
 				        		
 				        	</div>
+
 				        	<div class="form-group">
-				        			<label>Categories</label><select name="categories" class="form-control">
+				        		<label>Company Name:</label>
+				        		
+				        		<input type="text" name="name" class="form-control" placeholder="Enter Company Name:">
+				        		
+				        	</div>
+
+				        	<div class="form-group">
+				        			<label>Categories</label>
+				        		<select name="categories" class="form-control">
 						          <option value="">Choose Categories</option>
 						          {-- accept data and loop --}
 						          @foreach($categories as $row)
-						          <option value="{{$row->id}}">{{$row->name}}</option>
+						          <option value="{{$row->id}}">{{$row->category_name}}</option>
 						          @endforeach
 						        </select>
 				        		
@@ -45,7 +80,7 @@
 							          <option value="">Choose Locations</option>
 							          {-- accept data and loop --}
 							          @foreach($locations as $row)
-							          <option value="{{$row->id}}">{{$row->name}}</option>
+							          <option value="{{$row->id}}">{{$row->location_name}}</option>
 							          @endforeach
 							        </select>
 					        		
@@ -69,14 +104,25 @@
 				        		
 				        	</div>
 				        	<div class="form-group">
-				        			<label>Users</label><select name="users" class="form-control">
+				        			<label>Users</label>
+				        		<select name="users" class="form-control">
 						          <option value="">Choose Users</option>
 						          {-- accept data and loop --}
 						          @foreach($users as $row)
 						          <option value="{{$row->id}}">{{$row->name}}</option>
 						          @endforeach
-						        </select>
-				        		
+						        </select>				        		
+				        	</div>
+
+				        	<div class="form-group">
+				        			<label>Job Type</label>
+				        		<select name="jobtypes" class="form-control">
+						          <option value="">Choose Job Type</option>
+						          {-- accept data and loop --}
+						          @foreach($jobtypes as $row)
+						          <option value="{{$row->id}}">{{$row->name}}</option>
+						          @endforeach
+						        </select>				        		
 				        	</div>
 
 
@@ -93,3 +139,5 @@
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 
   <!-- /.container -->
+  <br><br><br><br>
+@extends('layout.footer')

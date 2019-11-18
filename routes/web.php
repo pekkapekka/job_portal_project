@@ -26,7 +26,7 @@ Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
 
-Route::resource('/postjob','jobController')->middleware('role:admin|employer');
+// Route::resource('/postjob','jobController')->middleware('role:admin|employer');
 
 Auth::routes();
 
@@ -45,7 +45,7 @@ Route::get('/jobtypesearch/{id}','jobTypeSearch@index')->name('jobtypesearch');
 
 Route::resource('/candidates','CandidateController');
 
-Route::resource('/jobs','jobController')->middleware('role:admin|employer');
+Route::resource('/jobs','jobController');
 
 // Route::resource('/jobtypes','JobtypeController')->middleware('role:admin|employer');
 

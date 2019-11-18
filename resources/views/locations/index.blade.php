@@ -8,6 +8,27 @@
 
 	  <!-- Custom styles for this template -->
 	  <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
+	  <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/aos.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
+
+    
+    <link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+    @extends('layout.nav')
+          <br><br><br><br>
 		<h1 class="text-center text-primary">Location Page</h1>
 		
 	 	<div class="container">
@@ -57,6 +78,8 @@
 			 </div>
     </div>  
 <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+<br><br><br><br>
+@extends('layout.footer')
 
 </body>
 </html>

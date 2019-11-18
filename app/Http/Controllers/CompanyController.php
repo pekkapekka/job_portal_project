@@ -45,21 +45,23 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'company_name' => 'required',
+             'name'=>'required',
+            
             'users' => 'required',
             'locations' => 'required',//form ka name k call(input type name
             'address' =>'required|min:5',
             'phone_number'=>'required',
-            
+           
         ]);
 
         //Data Insert
         $company=new Company();
-        $company->name=request('company_name');
+        $company->name=request('name');
         $company->user_id=request('users');
         $company->location_id=request('locations');
         $company->address=request('address');
         $company->phone_number=request('phone_number');
+        
        
         //d($candidates);   
         //$post->status=true;
@@ -103,17 +105,20 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'name'=>'required',
             'users' => 'required',
             'locations' => 'required',
             'address' => 'required',
-            'phone_number'=>'required'
+            'phone_number'=>'required',
+            
              ]);
 
-         $company=Company::find($id);
+        $company=Company::find($id);
         $company->user_id=request('users');
         $company->location_id=request('locations');
         $company->address=request('address');
         $company->phone_number=request('phone_number');
+        $company->name=request('name');
 
         $company->save();
 
