@@ -15,7 +15,7 @@
 	         @hasrole('admin')
 	          <li class="nav-item"><a href="{{route('postjob.index')}}" class="nav-link">Post a Job</a></li>
 	          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Actions</a>
               <div class="dropdown-menu">
                  <a class="dropdown-item" href="#">Company</a>
                  <div class="dropdown-divider"></div>
