@@ -25,7 +25,7 @@ class CompanyUserController extends Controller
      */
     public function create()
     {
-        auth()->user()->assignRole('employer');
+        
         return view('company_user.create');
     }
 
@@ -40,26 +40,28 @@ class CompanyUserController extends Controller
            $request->validate([
             'name' => 'required',
             'email'=>'required',
-            'phone_number'=>'required',
-          
-            
+            'phone_number'=>'required',            
         ]);
 
         //File Upload
       
 
         //Data Insert
-          $company_user=new Company_user();
+        //   $company_user=new Company_user();
       
-        $company_user->name=request('name');
-        $company_user->email=request('email');
-        $company_user->phone_number=request('phone_number');
-        
-        
-        $company_user->save();
+        // $company_user->name=request('name');
+        // $company_user->email=request('email');
+        // $company_user->phone_number=request('phone_number');
+        // $company_user->save();
+
+        $user = Company_user::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone_number' => $request['phone_number']
+        ]);
+        $user->assignRole('employer');
 
         //Redirect
-
        return redirect()->route('company_user.index');
     }
 

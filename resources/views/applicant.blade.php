@@ -65,6 +65,7 @@
           <thead>
             <th>Photo</th>
             <th>Company</th>
+            <th>Description</th>
             <th>Job</th>
             <th>View Profile</th>
             <th>Mail Here</th>
@@ -75,6 +76,7 @@
                     <td><img src="{{$row->candidate->photo}}" width="100px" /></td>
                     <td>{{$row->company->name}}</td>
                     <td>{{$row->job->title}}</td>
+                    <td>{{$row->job->description}}</td>
                     <td><a href="{{route('candidates.edit',$row->candidate_id)}}" class="btn btn-primary">Visit</a>
                     <td><a href="{{route('mail',$row->candidate_id)}}" class="btn btn-success">Mail Here</a>
                     </form>
