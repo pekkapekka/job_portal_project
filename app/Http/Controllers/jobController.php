@@ -106,7 +106,7 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $post = Job::find($id);   
+        $post = Job::find($id);
         $location = Location::find($id);   
         return view('detail.detail',compact('post','location'));
     }

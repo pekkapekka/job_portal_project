@@ -86,6 +86,7 @@
           @endhasrole
 
           @hasrole('user|company_user')
+          <input type="file" name="cv">
           <a href="{{route('sendcv',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
           @endhasrole
 

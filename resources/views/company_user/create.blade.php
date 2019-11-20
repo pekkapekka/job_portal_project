@@ -66,8 +66,8 @@
 				        		<input type="email" name="email" class="form-control" placeholder="Enter Email">
 				        	</div>
 				        	<div class="form-group">
-				        		<label>PhoneNo:</label>
-				        		<input type="text" name="phone_number" class="form-control" placeholder="Enter Phone No">
+				        		<label>Enter Password</label>
+				        		<input type="password" name="password" class="form-control" placeholder="Enter password">
 				        		
 				        	</div>
 				        	

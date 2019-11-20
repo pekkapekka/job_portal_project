@@ -60,7 +60,6 @@
 			        	<thead>
 			        		<th>Name</th>
 			        		<th>Email</th>
-			        		<th>PhoneNo</th>
 			        		
 							<th colspan="2">Action</th>
 
@@ -71,7 +70,6 @@
 			                  <tr>
 			                  	<td>{{$row->name}}</td>
 			                  	<td>{{$row->email}}</td>
-			                  	<td>{{$row->phone_number}}</td>
 			                  	
 	                  			<td><a href="{{route('company_user.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>
 

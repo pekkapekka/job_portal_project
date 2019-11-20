@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Company_user;
 
 class CompanyUserController extends Controller
@@ -40,7 +41,7 @@ class CompanyUserController extends Controller
            $request->validate([
             'name' => 'required',
             'email'=>'required',
-            'phone_number'=>'required',            
+            'password'=>'required',            
         ]);
 
         //File Upload
@@ -57,9 +58,9 @@ class CompanyUserController extends Controller
         $user = Company_user::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'phone_number' => $request['phone_number']
+            'password' =>Hash::make($request['password'])
         ]);
-        $user->assignRole('employer');
+        $user->assignRole('company_user');
 
         //Redirect
        return redirect()->route('company_user.index');
@@ -100,7 +101,7 @@ class CompanyUserController extends Controller
              $request->validate([
                 'name' => 'required',
                 'email'=>'required',
-                'phone_number'=>'required',
+                'password'=>'required',
           
                 //form ka name k call(input type 
             ]);
@@ -111,7 +112,7 @@ class CompanyUserController extends Controller
         $company_user= Company_user::find($id);
         $company_user->name=request('name');
         $company_user->email=request('email');
-        $company_user->phone_number=request('phone_number');
+        $company_user->password=Hash::make($request['password']);
         
         
         $company_user->save();

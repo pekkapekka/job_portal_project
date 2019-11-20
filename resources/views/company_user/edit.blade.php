@@ -66,8 +66,8 @@
 		        		
 		        	</div>
 		        	<div class="form-group">
-		        		<label>PhoneNo:</label>
-		        		<input type="text" name="phone_number" class="form-control" value="{{$company_user->phone_number}}">
+		        		<label>Password</label>
+		        		<input type="password" name="password" class="form-control" value="{{$company_user->password}}">
 		        		
 		        	</div>
 		        	

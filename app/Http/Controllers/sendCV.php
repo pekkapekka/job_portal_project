@@ -25,6 +25,6 @@ class sendCV extends Controller
      //    $jobassign->save();
 
         //Redirect
-        return 'sent';
+        return view('cv.index');
     }
 }

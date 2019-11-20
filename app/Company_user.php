@@ -9,7 +9,7 @@ class Company_user extends Model
 {
 	use HasRoles;
 	protected $guard_name = 'web';
-	protected $fillable = ['name', 'email','phone_number'];
+	protected $fillable = ['name', 'email','password'];
      public function job()
     {
     	return $this->hasMany('App\Job');
