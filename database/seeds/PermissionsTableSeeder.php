@@ -12,18 +12,19 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        //
         $permissions = [
-        	'manage-user',
-        	'manage-company',
-        	'manage-location',
-        	'manage-candidate',
-        	'manage-post',
-        	'manage-job',
-        	'manage-category'
-        ];
+			'manage-user',
+			'manage-company',
+			'manage-location',
+			'manage-candidate',
+			'manage-post',
+			'manage-job',
+			'manage-category'
+		];
 
-        foreach($permissions as $permission){
-        	Permission::create(['name' => $permission]);
-        }
+		foreach ($permissions as $permission) {
+			Permission::create(['name' => $permission]);
+		}
     }
 }

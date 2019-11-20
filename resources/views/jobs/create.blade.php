@@ -104,11 +104,11 @@
 				        		
 				        	</div>
 				        	<div class="form-group">
-				        			<label>Users</label>
+				        			<label>Company Users</label>
 				        		<select name="users" class="form-control">
-						          <option value="">Choose Users</option>
+						          <option value="">Choose Company Users</option>
 						          {-- accept data and loop --}
-						          @foreach($users as $row)
+						          @foreach($company_user as $row)
 						          <option value="{{$row->id}}">{{$row->name}}</option>
 						          @endforeach
 						        </select>				        		

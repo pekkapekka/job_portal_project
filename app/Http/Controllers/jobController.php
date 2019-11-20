@@ -8,6 +8,7 @@ use App\Location;
 use App\Category;
 use App\User;
 use App\Jobtype;
+use App\Company_user;
 use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
@@ -35,12 +36,12 @@ class JobController extends Controller
     {
         $categories=Category::all();
         $locations=Location::all();
-        $users=User::all();
+        $company_user=Company_user::all();
         $jobtypes=Jobtype::all();
 
 
         
-         return view('jobs.create',compact('categories','locations','users','jobtypes'));
+         return view('jobs.create',compact('categories','locations','company_user','jobtypes'));
     }
 
     /**
@@ -105,8 +106,9 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $post = Job::find($id);      
-        return view('detail.detail',compact('post'));
+        $post = Job::find($id);   
+        $location = Location::find($id);   
+        return view('detail.detail',compact('post','location'));
     }
 
     /**

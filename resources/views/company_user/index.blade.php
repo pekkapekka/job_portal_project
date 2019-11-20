@@ -8,6 +8,8 @@
   <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
 
 
+
+
   <title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,10 +40,10 @@
 
 </head>
 <body>
-	<h1 class="text-center text-success">Jobs Page</h1>
+	<h1 class="text-center text-success">Company User Page</h1>
 	 	<div class="container">
 			      <div class="row my-3">
-			        <div class="col-md-6 offset-1">
+			        <div class="col-md-6 offset-4">
 			          @if ($errors->any())
 			        <div class="alert alert-danger">
 			        <ul>
@@ -56,34 +58,25 @@
 			          
 			        <table border="1" cellspacing="0" cellpadding="20" class="table-hover">
 			        	<thead>
-			        		<th>Title</th>
-			        		<th>Category</th>
-			        		<th>Location</th>
-			        		<th>Description</th>
-			        		<th>Salary</th>
-							<th>Photo</th>
-							<th>User</th>
+			        		<th>Name</th>
+			        		<th>Email</th>
+			        		<th>PhoneNo</th>
+			        		
 							<th colspan="2">Action</th>
+
+
 			        	</thead>
 			        	<tbody>
-			        		@foreach($jobs as $row)
+			        		@foreach($company_user as $row)
 			                  <tr>
-			                  	<td>{{$row->title}}</td>
-			                  	<td>{{$row->category->category_name}}</td>
-			                  	<td>{{$row->location->location_name}}</td>
-			                  	<td>{{$row->description}}</td>
+			                  	<td>{{$row->name}}</td>
+			                  	<td>{{$row->email}}</td>
+			                  	<td>{{$row->phone_number}}</td>
 			                  	
-			                  	<td>{{$row->salary}}</td>
-			                  	
-			                  	<td><img src="{{asset($row->image)}}" class="img-fluid rounded" width="100px" height="100px"></td>
-
-			                  	<td>{{$row->company_user->name}}</td>
-			                  	
-			                  	
-	                  			<td><a href="{{route('jobs.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>
+	                  			<td><a href="{{route('company_user.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>
 
 	                  			
-			                    <td><form method="post" action="{{route('jobs.destroy',$row->id)}}">
+			                    <td><form method="post" action="{{route ('company_user.destroy',$row->id)}}">
 			                    @csrf
 			                    @method('DELETE')
 			                  
@@ -98,12 +91,11 @@
 			     </div>
 			 </div>
     </div>  
+<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 <br><br><br><br>
 @extends('layout.footer')
+
 </body>
-<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
-
-
 </html>
     
   

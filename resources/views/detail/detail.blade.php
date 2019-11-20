@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Detail Form</title>
-  <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
- 
-  <!-- Custom styles for this template -->
-  <link href="{{asset('css/blog-home.css')}}" rel="stylesheet">
-  <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
+@extends('template')
+
+@include('layout.nav')
+
+@section('content')
+
+<title>JobPortal - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
@@ -27,7 +31,6 @@
 
     @extends('layout.nav')
           <br><br><br><br>
-
 
 </head>
 <body>
@@ -50,7 +53,7 @@
         <!-- Author -->
         <p class="lead">
           by
-          <a href="#">{{$post->user->name}}</a>
+          <a href="#">{{$post->company_user->name}}</a>
         </p>
 
         <hr>
@@ -63,7 +66,7 @@
         
           
            
-          @if(Auth::check() && Auth::id() ==$post->user->id)
+          @if(Auth::check() && Auth::id() == $post->id)
         
         <!-- delete ko form nat yae -->
       
@@ -71,7 +74,7 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endif
 
           @hasrole('admin')
@@ -79,11 +82,11 @@
           @method('DELETE')
           
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="#" class="float-right btn btn-warning ml-2">Edit</a>
+          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
           @hasrole('user')
-          <a href="{{route('candidates.create')}}" class="float-right btn btn-dark ml-2">Send CV</a>
+          <a href="{{route('sendcv',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
           @endhasrole
 
           @hasrole('admin|employer')
@@ -141,4 +144,5 @@
 </body>
 </html>
 <br><br><br><br>
-@extends('layout.footer')
+@include('layout.footer')
+@endsection

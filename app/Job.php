@@ -17,9 +17,9 @@ class Job extends Model
     {
     	return $this->belongsTo('App\Jobtype');
     }
-    public function user()
+    public function company_user()
     {
-       return $this->belongsTo('App\User');
+       return $this->belongsTo('App\Company_user');
     }
     public function reviews()
     {

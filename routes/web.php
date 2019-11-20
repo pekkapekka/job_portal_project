@@ -56,3 +56,7 @@ Route::resource('/company','CompanyController')->middleware('role:admin|employer
 Route::resource('/locations','LocationController')->middleware('role:admin|employer');
 
 Route::get('/applicant','applicantController@index')->middleware('role:admin|employer')->name('applicant');
+
+Route::get('/send/{id}','sendCV@index')->name('sendcv');
+
+Route::resource('/company_user','CompanyUserController');

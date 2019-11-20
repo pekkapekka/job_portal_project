@@ -68,6 +68,7 @@
                             <div class="col-md-6 mt-2">
                                 <input id="employer" type="radio" name="role" value="employer"><label for="employer">Employer</label>
                                 <input id="user" type="radio" name="role" value="user"><label for="user">User</label>
+                                
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">

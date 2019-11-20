@@ -17,9 +17,9 @@
 	        <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Create</a>
               <div class="dropdown-menu">
-                 <a class="dropdown-item" href="{{route('company.create')}}">Company</a>
+                 <a class="dropdown-item" href="{{route('company_user.create')}}">Company</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="{{route('candidates.create')}}">Candidate</a>
+                <!--  <a class="dropdown-item" href="{{route('candidates.create')}}">Candidate</a> -->
                  <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="{{route('category.create')}}">Category</a>
                  <div class="dropdown-divider"></div>
@@ -35,7 +35,7 @@
               <div class="dropdown-menu">
                  <a class="dropdown-item" href="{{route('company.index')}}">Company</a>
                  <div class="dropdown-divider"></div>
-                 <a class="dropdown-item" href="{{route('candidates.index')}}">Candidate</a>
+                <!--  <a class="dropdown-item" href="{{route('candidates.index')}}">Candidate</a> -->
                  <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="{{route('category.index')}}">Category</a>
                  <div class="dropdown-divider"></div>
@@ -48,7 +48,15 @@
             @endhasrole
 
             @hasrole('employer')
-	          <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link">Post a Job</a></li>	          
+	          
+	          <li class="nav-item"><a href="{{route('company_user.create')}}" class="nav-link">Register</a></li> 
+	          	 
+	        @endhasrole
+
+	        @hasrole('company_user')
+                
+
+                 <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link">Post a Job</a></li>	 
 	        @endhasrole
 	         
 
