@@ -85,7 +85,7 @@
           <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
-          @hasrole('user')
+          @hasrole('user|company_user')
           <a href="{{route('sendcv',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
           @endhasrole
 
@@ -132,14 +132,52 @@
 
    
 
-      </div>
+      </div><br>
+
 
       <!-- Sidebar Widgets Column -->
       
 
     </div>
     <!-- /.row -->
+    <!-- comment form -->
+  <div class="card my-4">
+          <h5 class="card-header">Leave a Review:</h5>
+          <div class="card-body">
+            @if ($errors->any())
+            <div class="alert alert-danger"></div>
+            <ul>
+              @foreach($error->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
+            <form method="post" action="{{route('review')}}">
+              @csrf
+              <div class="form-group">
+                <textarea class="form-control" rows="3" name="content"></textarea>
+                <input type="hidden" name="postid" value="{{$post->id}}">
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+        @php
+              $reviews = $post->reviews ;
+        @endphp
 
+         @foreach($reviews as $row) 
+        <div class="media mb-4">
+          <div class="media-body">
+            <h5 class="mt-0">{{$row->user->name}}</h5>
+            {{$row->body}}
+          </div>
+        </div>
+        @endforeach
+
+
+      </div>
   </div>
 </body>
 </html>

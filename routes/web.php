@@ -60,3 +60,5 @@ Route::get('/applicant','applicantController@index')->middleware('role:admin|emp
 Route::get('/send/{id}','sendCV@index')->name('sendcv');
 
 Route::resource('/company_user','CompanyUserController');
+
+Route::post('/review','ReviewController@store')->name('review');
