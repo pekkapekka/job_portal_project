@@ -63,7 +63,6 @@
        <table border="1" cellspacing="0" cellpadding="20" class="table-striped table-info table-mm-6 table-hover">
 
           <thead>
-            <th>Photo</th>
             <th>Company</th>
             <th>Description</th>
             <th>Job</th>
@@ -73,7 +72,6 @@
           <tbody>
             @foreach($applicants as $row)
                   <tr>
-                    <td><img src="{{$row->candidate->photo}}" width="100px" /></td>
                     <td>{{$row->company->name}}</td>
                     <td>{{$row->job->title}}</td>
                     <td>{{$row->job->description}}</td>

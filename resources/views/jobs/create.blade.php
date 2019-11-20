@@ -103,16 +103,7 @@
 				        		<input type="file" name="photo" class="form-control" >
 				        		
 				        	</div>
-				        	<div class="form-group">
-				        			<label>Company Users</label>
-				        		<select name="users" class="form-control">
-						          <option value="">Choose Company Users</option>
-						          {-- accept data and loop --}
-						          @foreach($company_user as $row)
-						          <option value="{{$row->id}}">{{$row->name}}</option>
-						          @endforeach
-						        </select>				        		
-				        	</div>
+				        	
 
 				        	<div class="form-group">
 				        			<label>Job Type</label>

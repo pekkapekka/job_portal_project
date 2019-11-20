@@ -10,7 +10,11 @@
 	          <!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> -->
 	          <li class="nav-item"><a href="{{route('index')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+
+	          @hasrole('admin')
 	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Recent Jobs</a></li>
+	          @endrole
+
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
 	         @hasrole('admin')
 	          <!-- <li class="nav-item"><a href="{{route('jobs.index')}}" class="nav-link">Post a Job</a></li> -->

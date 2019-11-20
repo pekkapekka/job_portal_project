@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Company_user;
+use App\User;
 
 class CompanyUserController extends Controller
 {
@@ -15,7 +15,7 @@ class CompanyUserController extends Controller
      */
     public function index()
     {
-         $company_user=Company_user::all();
+         $company_user=User::all();
         return view('company_user.index',compact('company_user'));
     }
 
@@ -55,7 +55,7 @@ class CompanyUserController extends Controller
         // $company_user->phone_number=request('phone_number');
         // $company_user->save();
 
-        $user = Company_user::create([
+        $user = User::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' =>Hash::make($request['password'])
@@ -85,7 +85,7 @@ class CompanyUserController extends Controller
      */
     public function edit($id)
     {
-         $company_user=Company_user::find($id);
+         $company_user=User::find($id);
         return view('company_user.edit',compact('company_user'));
     }
 
@@ -109,7 +109,7 @@ class CompanyUserController extends Controller
        
 
         //Data Insert
-        $company_user= Company_user::find($id);
+        $company_user= User::find($id);
         $company_user->name=request('name');
         $company_user->email=request('email');
         $company_user->password=Hash::make($request['password']);
@@ -135,7 +135,7 @@ class CompanyUserController extends Controller
      */
     public function destroy($id)
     {
-        $company_user= Company_user::find($id);
+        $company_user= User::find($id);
          $company_user->delete();
 
         return redirect()->route('company_user.index');

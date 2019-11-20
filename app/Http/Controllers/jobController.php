@@ -60,7 +60,7 @@ class JobController extends Controller
             'description'=>'required',
             'salary'=>'required',
             'photo'=>'required|mimes:jpeg,png,jpg',
-            'users' => 'required',
+            
             
         ]);
 
@@ -85,7 +85,7 @@ class JobController extends Controller
         $jobs->description=request('description');
         $jobs->salary=request('salary');
         $jobs->image=$photo;
-        $jobs->user_id = request('users');
+        $jobs->company_user_id  = Auth::id();
         $jobs->jobtype_id = request('jobtypes');
         // $job->user_id = Auth::id();
        
@@ -122,7 +122,7 @@ class JobController extends Controller
         $jobs=Job::find($id);
         $categories=Category::all();
         $locations=Location::all();
-        $users=User::all();
+        $users=Auth::user();
         return view('jobs.edit',compact('jobs','categories','locations','users'));
     }
 

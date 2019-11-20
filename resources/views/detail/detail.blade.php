@@ -52,13 +52,12 @@
 
         <!-- Author -->
         <p class="lead">
-          by
-          <a href="#">{{$post->company_user->name}}</a>
+          by {{$post->name}}
+          
         </p>
 
         <hr>
-          <form method="post" action="">
-
+         
             
          
          <p>Posted on {{$post->created_at->toDayDateTimeString()}}
@@ -66,31 +65,24 @@
         
           
            
-          @if(Auth::check() && Auth::id() == $post->id)
+          @if(Auth::check() && Auth::id() == $post->user_id)
         
         <!-- delete ko form nat yae -->
       
           @csrf
-          @method('DELETE')
-          
+          @method('DELETE')          
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
           <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endif
 
-          @hasrole('admin')
+          @hasrole('employer')
           @csrf
-          @method('DELETE')
-          
+          @method('DELETE')          
           <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
           <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
-          @hasrole('user|company_user')
-          <input type="file" name="cv">
-          <a href="{{route('sendcv',$post->id)}}" class="float-right btn btn-dark ml-2">Send CV</a>
-          @endhasrole
-
-          @hasrole('admin|employer')
+          @hasrole('admin')
             <a href="{{route('applicant')}}" class="float-right btn btn-dark ml-2">Applicants</a>
           @endhasrole
           
@@ -112,22 +104,24 @@
         <hr>
 
         <!-- Post Content -->
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p>
+        <p class="lead">{{$post->description}}</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus, voluptatibus.</p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+         @hasrole('user|company_user')
+          
+          
+                    
+                    
+                  <a href="#exampleModal" data-toggle="modal"  class="btn btn-primary">apply</a>
+                    
+          @endhasrole
 
         <blockquote class="blockquote">
-          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+          <p class="mb-0"></p>
           <footer class="blockquote-footer">Someone famous in
             <cite title="Source Title">Source Title</cite>
           </footer>
         </blockquote>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae? Qui, necessitatibus, est!</p>
 
         <hr>
 
@@ -182,6 +176,50 @@
   </div>
 </body>
 </html>
+
+
+<div class="col px-md-5">
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header"><br>
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form method="post" action="{{route('candidates.store')}}" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="jobid" value="{{$post->id}}">
+            <div class="form-group">
+              <label>Address:</label><textarea name="address" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+             <label>Phone No:</label><input type="text" name="phone_no" class="form-control"><br>            
+            </div>
+            <div class="form-group">
+              <label>Education:</label><input type="text" name="education" class="form-control"><br>            
+            </div>
+            <div class="form-group">
+               <label>Upload photo:</label><input type="file" name="photo" class="form-control"><br>
+            </div>
+            <div class="form-group">
+              <label>Upload CV:</label><input type="file" name="cv" class="form-control"><br>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary" value="submit">
+            </div>
+         </form>
+         </div>
+     
+    </div>
+  </div>
+
+</div>
+
 <br><br><br><br>
 @include('layout.footer')
 @endsection

@@ -85,23 +85,6 @@
 		        	
 		        	</div>
 		        	<div class="form-group">
-		        		<label>Age</label>
-		        		<input type="number" name="age" class="form-control" value="{{$candidates->age}}">
-		        		
-		        	</div>
-		        	<div class="form-group">
-		        		  <label>MemberTypes</label><select name="genders" class="form-control">
-				          <option value="">Choose MemberTypes</option>
-				          {-- accept data and loop --}
-				          @foreach($genders as $row)
-				          <option value="{{$row->id}}"
-				            @if($row->id==$candidates->gender_id){{'selected'}}
-				            @endif]
-				            >{{$row->name}}</option>
-				          @endforeach
-				        </select>
-		        	</div>
-		        	<div class="form-group">
 		        		<label>Photo</label>
 		        		<span class="text-danger">[support file type:jpeg,png,jpg]</span>
 		        		<input type="file" name="photo" class="form-control"><br>
@@ -110,6 +93,11 @@
 
 		        		<input type="hidden" name="oldphoto" value="{{$candidates->photo}}">
 		        		
+		        	</div>
+
+		        	<div class="form-group">
+		        		<label>Upload your cv</label>
+		        		<input type="file" name="cv" class="form-control"><br>		        		
 		        	</div>
 
 		        	<div class="form-group">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Candidate;
 use App\Jobtype;
 use App\Gender;
@@ -37,6 +38,7 @@ class CandidateController extends Controller
      */
     public function create()
     {
+
         $jobtypes=Jobtype::all();
 
         $genders=Gender::all();
@@ -52,16 +54,16 @@ class CandidateController extends Controller
      */
     public function store(Request $request)
     {
-          $request->validate([
-            'jobtypes' => 'required',//form ka name k call(input type name
-            'address' =>'required|min:5',
-            'phone_number'=>'required',
+        //dd($request);
+          /*$request->validate([
+            'jobid' => 'required',//form ka name k call(input type name
+            'phone_no' =>'required|min:5',
+            'address'=>'required',
             'education'=>'required',
-            'age'=>'required',
-            'genders'=>'required',
             'photo'=>'required|mimes:jpeg,png,jpg',
+            'cv'=>'required',
             
-        ]);
+        ]);*/
 
         //File Upload
         if($request->hasfile('photo')){
@@ -75,20 +77,27 @@ class CandidateController extends Controller
             $photo='';
         }
 
+        if($request->hasfile('cv')){
+            $cv=$request->file('cv');
+            $name=time().'.'.$cv->getClientOriginalExtension();
+            $cv->move(public_path().'/storage/cv/',$name);
+            $cv='/storage/cv/'.$name;
+
+        }
+        else{
+            $cv='';
+        }
+
+
         //Data Insert
         $candidates=new Candidate();
-        $candidates->jobtype_id=request('jobtypes');
+        $candidates->jobtype_id=request('jobid');
         $candidates->address=request('address');
-        $candidates->phone_no=request('phone_number');
+        $candidates->phone_no=request('phone_no');
         $candidates->education=request('education');
-        $candidates->age=request('age');
-        
-        $candidates->gender_id=request('genders');
-        
-        
-     
         $candidates->photo=$photo;
-       
+        $candidates->cv=$cv;
+        $candidates->user_id = Auth::id();
         //d($candidates);   
         //$post->status=true;
         $candidates->save();
@@ -134,14 +143,13 @@ class CandidateController extends Controller
      */
     public function update(Request $request, $id)
     {
-                  $request->validate([
+            $request->validate([
             'jobtypes' => 'required',//form ka name k call(input type name
             'address' =>'required|min:5',
             'phone_number'=>'required',
             'education'=>'required',
-            'age'=>'required',
-            'genders'=>'required',
             'photo'=>'sometimes|mimes:jpeg,png,jpg',
+            'cv'=>'required',
             
         ]);
 
@@ -157,20 +165,26 @@ class CandidateController extends Controller
             $photo='oldphoto';
         }
 
+        if($request->hasfile('cv')){
+            $cv=$request->file('cv');
+            $name=time().'.'.$cv->getClientOriginalExtension();
+            $cv->move(public_path().'/storage/cv/',$name);
+            $cv='/storage/cv/'.$name;
+
+        }
+        else{
+            $cv='';
+        }
+
         //Data Insert
         $candidates= Candidate::find($id);
         $candidates->jobtype_id=request('jobtypes');
         $candidates->address=request('address');
         $candidates->phone_no=request('phone_number');
         $candidates->education=request('education');
-        $candidates->age=request('age');
-        
-        $candidates->gender_id=request('genders');
-        
-        
-     
         $candidates->photo=$photo;
-       
+        $candidates->cv=$cv;
+
         //dd($candidates);   
         //$post->status=true;
         $candidates->save();

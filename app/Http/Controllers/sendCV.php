@@ -10,7 +10,7 @@ use App\Jobassign;
 
 class sendCV extends Controller
 {
-    public function index($id)
+    public function index()
     {
     	// $candidate_id = Candidate::find($id);
     	// $company_id = Company::find($id)->id;

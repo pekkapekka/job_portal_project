@@ -105,19 +105,7 @@
 		        		<input type="hidden" name="oldphoto" value="{{$jobs->photo}}">
 		        		
 		        	</div>
-		        	<div class="form-group">
-		        		 <label>Users</label><select name="users" class="form-control">
-			          <option value="">Choose Users</option>
-			          {-- accept data and loop --}
-			          @foreach($users as $row)
-			          <option value="{{$row->id}}"
-			            @if($row->id==$jobs->user_id){{'selected'}}
-			            @endif]
-			            >{{$row->name}}</option>
-			          @endforeach
-			        </select>
-		        		
-		        	</div>
+		        		 <input type="hidden" name="users" value="{{$users->id}}"/>
 		       	<div class="form-group">
 		            
 		            <input type="submit" name="btnsubmit" class="btn btn-primary" value="Update">

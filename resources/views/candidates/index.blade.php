@@ -62,8 +62,6 @@
 			        		<th>Address</th>
 			        		<th>PhoneNo</th>
 			        		<th>Education</th>
-			        		<th>Age</th>
-							<th>GenderId</th>
 							<th>Photo</th>
 							<th colspan="2">Action</th>
 
@@ -72,20 +70,13 @@
 			        	<tbody>
 			        		@foreach($candidates as $row)
 			                  <tr>
-			                  	<td>{{$row->jobtype->name}}</td>
+			                  	<td>{{$row->jobtype}}</td>
 			                  	<td>{{$row->address}}</td>
 			                  	<td>{{$row->phone_no}}</td>
-			                  	<td>{{$row->education}}</td>
-			                  	
-			                  	<td>{{$row->age}}</td>
-			                  	
-			                  	<td>{{$row->gender->name}}</td>
-			                  	
+			                  	<td>{{$row->education}}</td>			                  	
 			                  	<td><img src="{{asset($row->photo)}}" class="img-fluid rounded" width="100px" height="100px"></td>
 
-	                  			<td><a href="{{route('candidates.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>
-
-	                  			
+	                  			<td><a href="{{route('candidates.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>        			
 			                    <td><form method="post" action="{{route ('candidates.destroy',$row->id)}}">
 			                    @csrf
 			                    @method('DELETE')

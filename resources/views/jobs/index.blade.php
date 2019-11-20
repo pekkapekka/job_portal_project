@@ -77,7 +77,7 @@
 			                  	
 			                  	<td><img src="{{asset($row->image)}}" class="img-fluid rounded" width="100px" height="100px"></td>
 
-			                  	<td>{{$row->company_user->name}}</td>
+			                  	
 			                  	
 			                  	
 	                  			<td><a href="{{route('jobs.edit',$row->id)}}" class="btn btn-warning">Edit</a></td>

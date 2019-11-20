@@ -4,6 +4,13 @@
 	<title></title>
 </head>
 <body>
-<label>cv from index</label>
+<form action="" method="">
+ 						<div class="form-group">
+				        		<label>Photo</label>
+				        		<span class="text-danger">[support file type:jpeg,png,jpg]</span>
+				        		<input type="file" name="photo" class="form-control">
+				        		
+				        	</div>
+</form>
 </body>
 </html>
