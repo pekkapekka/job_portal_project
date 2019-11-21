@@ -59,22 +59,8 @@
         <hr>
          
             
-         
+         <form method="post" action="">
          <p>Posted on {{$post->created_at->toDayDateTimeString()}}
-        <!-- Date/Time -->
-        
-          
-           
-          @if(Auth::check() && Auth::id() == $post->user_id)
-        
-        <!-- delete ko form nat yae -->
-      
-          @csrf
-          @method('DELETE')          
-          <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
-          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
-          @endif
-
           @hasrole('employer')
           @csrf
           @method('DELETE')          
