@@ -13,6 +13,7 @@
 
 	          @hasrole('admin')
 	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Recent Jobs</a></li>
+	          <li class="nav-item"><a href="{{route('mail',1)}}" class="nav-link">Send Mail</a></li>
 	          @endrole
 
 	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>

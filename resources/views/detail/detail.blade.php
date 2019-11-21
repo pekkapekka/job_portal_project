@@ -84,6 +84,7 @@
           <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
+          
         
 
 

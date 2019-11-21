@@ -68,11 +68,11 @@
     {{ csrf_field() }}
     <div class="form-group">
      <label>Candidate Name</label>
-     <input type="text" name="name" class="form-control" value="{{$username->name}}" />
+     <input type="text" name="name" class="form-control" value="" />
     </div>
     <div class="form-group">
      <label>Candidate Email</label>
-     <input type="text" name="email" class="form-control" value="pekkafirethawn459@gmail.com" />
+     <input type="text" name="email" class="form-control" value="" />
     </div>
     <div class="form-group">
      <label>Enter Message</label>
@@ -88,3 +88,9 @@
 @extends('layout.footer')
  </body>
 </html>
+
+myanmaritc.com/cv.docx
+
+yinmin.mic@gmail.com
+
+Internship
