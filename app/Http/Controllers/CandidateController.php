@@ -91,7 +91,7 @@ class CandidateController extends Controller
 
         //Data Insert
         $candidates=new Candidate();
-        $candidates->jobtype_id=request('jobid');
+        $candidates->jobtype_id=request('jobtypeid');
         $candidates->address=request('address');
         $candidates->phone_no=request('phone_no');
         $candidates->education=request('education');
@@ -104,7 +104,7 @@ class CandidateController extends Controller
 
         //Redirect
 
-        return redirect()->route('candidates.index');
+        return redirect()->route('index');
     }
 
     /**

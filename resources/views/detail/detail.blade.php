@@ -52,13 +52,15 @@
 
         <!-- Author -->
         <p class="lead">
-          by {{$post->name}}
+          <h3>{{$post->name}}</h3>
+
+          <h4>Post by {{$post->user->name}}</h4>
           
         </p>
 
         <hr>
          
-            
+          @if(Auth::check() && Auth::id() == $post->user_id) 
          <form method="post" action="">
          <p>Posted on {{$post->created_at->toDayDateTimeString()}}
           @hasrole('employer')
@@ -68,11 +70,20 @@
           <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
           @endhasrole
 
-          @hasrole('admin')
+          @hasrole('user')
             <a href="{{route('applicant')}}" class="float-right btn btn-dark ml-2">Applicants</a>
           @endhasrole
           
         </form>
+          @endif
+
+          @hasrole('admin')
+          @csrf
+          @method('DELETE')          
+          <input type="submit" class="btn btn-danger float-right ml-1" value="Delete">
+          <a href="{{route('jobs.edit',$post->id)}}" class="float-right btn btn-warning ml-2">Edit</a>
+          @endhasrole
+
         
 
 
@@ -104,8 +115,8 @@
 
         <blockquote class="blockquote">
           <p class="mb-0"></p>
-          <footer class="blockquote-footer">Someone famous in
-            <cite title="Source Title">Source Title</cite>
+          <footer class="blockquote-footer">
+            <cite title="Source Title"></cite>
           </footer>
         </blockquote>
 
@@ -180,6 +191,11 @@
           <form method="post" action="{{route('candidates.store')}}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="jobid" value="{{$post->id}}">
+
+            <input type="hidden" name="jobtypeid" value="{{$post->jobtype_id}}">
+            <div class="form-group">
+              <label>Job Type:</label><input type="text" name="jobtype" class="form-control" value="{{$post->title}}">
+            </div>
             <div class="form-group">
               <label>Address:</label><textarea name="address" class="form-control"></textarea>
             </div>

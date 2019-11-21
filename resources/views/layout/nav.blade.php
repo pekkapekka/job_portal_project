@@ -53,11 +53,11 @@
 
             @hasrole('employer')
 	          
-	          <li class="nav-item"><a href="{{route('company_user.create')}}" class="nav-link">Register</a></li> 
+	          <!-- <li class="nav-item"><a href="{{route('company_user.create')}}" class="nav-link">Register</a></li>  -->
 	          	 
 	        @endhasrole
 
-	        @hasrole('company_user')
+	        @hasrole('employer')
                 
 
                  <li class="nav-item"><a href="{{route('jobs.create')}}" class="nav-link">Post a Job</a></li>	 

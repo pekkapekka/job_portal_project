@@ -85,7 +85,7 @@ class JobController extends Controller
         $jobs->description=request('description');
         $jobs->salary=request('salary');
         $jobs->image=$photo;
-        $jobs->company_user_id  = Auth::id();
+        $jobs->user_id  = Auth::id();
         $jobs->jobtype_id = request('jobtypes');
         // $job->user_id = Auth::id();
        
@@ -95,7 +95,7 @@ class JobController extends Controller
 
         //Redirect
 
-        return redirect()->route('jobs.index');
+        return redirect()->route('index');
     }
 
     /**

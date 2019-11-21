@@ -70,7 +70,7 @@
 			        	<tbody>
 			        		@foreach($candidates as $row)
 			                  <tr>
-			                  	<td>{{$row->jobtype}}</td>
+			                  	<td>{{$row->jobtype_id}}</td>
 			                  	<td>{{$row->address}}</td>
 			                  	<td>{{$row->phone_no}}</td>
 			                  	<td>{{$row->education}}</td>			                  	
